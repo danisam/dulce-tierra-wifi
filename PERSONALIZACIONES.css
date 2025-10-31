@@ -1,0 +1,212 @@
+/* PERSONALIZACIONES OPCIONALES PARA TU PÁGINA */
+/* Copia y pega estos cambios en el archivo index.html dentro de la etiqueta <style> */
+
+/* ============================================ */
+/* 1. CAMBIAR COLORES DEL TEMA */
+/* ============================================ */
+
+/* Para cambiar a tonos más claros (beige/crema): */
+body {
+    background: linear-gradient(135deg, #D2B48C 0%, #DEB887 50%, #F5DEB3 100%);
+}
+
+.logo {
+    background: linear-gradient(135deg, #8B7355, #A0826D);
+}
+
+.copy-button {
+    background: linear-gradient(135deg, #8B7355, #A0826D);
+}
+
+/* ============================================ */
+/* 2. CAMBIAR COLORES A VERDE/NATURAL */
+/* ============================================ */
+
+body {
+    background: linear-gradient(135deg, #4A7C59 0%, #6B8E6F 50%, #87A96B 100%);
+}
+
+.logo {
+    background: linear-gradient(135deg, #4A7C59, #6B8E6F);
+}
+
+h1 {
+    color: #4A7C59;
+}
+
+/* ============================================ */
+/* 3. AGREGAR TU PROPIO LOGO (imagen real) */
+/* ============================================ */
+
+/* Reemplaza esto en el HTML:
+<div class="logo">DT</div>
+
+Por esto:
+<img src="tu-logo.png" alt="Dulce Tierra" class="logo-img">
+*/
+
+/* Y agrega este CSS: */
+.logo-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================ */
+/* 4. CAMBIAR TAMAÑOS DE FUENTE */
+/* ============================================ */
+
+h1 {
+    font-size: 32px; /* más grande */
+}
+
+.subtitle {
+    font-size: 18px; /* más grande */
+}
+
+/* ============================================ */
+/* 5. AGREGAR ANIMACIONES AL BOTÓN */
+/* ============================================ */
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.copy-button:hover {
+    animation: pulse 1s infinite;
+}
+
+/* ============================================ */
+/* 6. CAMBIAR EL CÓDIGO QR DE COLOR */
+/* ============================================ */
+
+/* En el JavaScript, busca estas líneas y cámbialas: */
+/*
+color: {
+    dark: '#4A7C59',  // Color del QR (cambia este)
+    light: '#FFFFFF'  // Fondo del QR
+}
+*/
+
+/* ============================================ */
+/* 7. AGREGAR HORARIOS DEL CAFÉ */
+/* ============================================ */
+
+/* Agrega este HTML antes del footer: */
+/*
+<div class="hours">
+    <h3>Horarios</h3>
+    <p>Lunes a Viernes: 7:00 AM - 8:00 PM</p>
+    <p>Sábados y Domingos: 8:00 AM - 9:00 PM</p>
+</div>
+*/
+
+/* Y este CSS: */
+.hours {
+    margin-top: 25px;
+    background: #f8f8f8;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+}
+
+.hours h3 {
+    color: #8B4513;
+    margin-bottom: 10px;
+}
+
+.hours p {
+    color: #666;
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+/* ============================================ */
+/* 8. AGREGAR BOTÓN DE WHATSAPP */
+/* ============================================ */
+
+/* Agrega este HTML después del botón de copiar: */
+/*
+<a href="https://wa.me/5215512345678" class="whatsapp-button" target="_blank">
+    💬 Contáctanos por WhatsApp
+</a>
+*/
+
+/* Y este CSS: */
+.whatsapp-button {
+    display: block;
+    background: #25D366;
+    color: white;
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    background: #20BA5A;
+    transform: translateY(-2px);
+}
+
+/* ============================================ */
+/* 9. HACER EL QR MÁS GRANDE */
+/* ============================================ */
+
+.qr-code {
+    width: 250px;  /* Cambia de 200px a 250px */
+    height: 250px;
+}
+
+/* Y en el JavaScript cambia: */
+/* width: 220  (en lugar de 170) */
+
+/* ============================================ */
+/* 10. CAMBIAR A MODO OSCURO */
+/* ============================================ */
+
+body {
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #3a3a3a 100%);
+}
+
+.container {
+    background: #2d2d2d;
+    color: white;
+}
+
+h1, .wifi-label, .steps h3 {
+    color: #D2691E;
+}
+
+.wifi-value {
+    color: white;
+}
+
+.wifi-info, .steps, .qr-section {
+    background: #1a1a1a;
+}
+
+/* ============================================ */
+/* TIPS PARA EDITAR: */
+/* ============================================ */
+
+1. Los colores se escriben en formato hexadecimal (#RRGGBB)
+2. Los tamaños en píxeles (px) o porcentajes (%)
+3. Siempre guarda una copia antes de hacer cambios
+4. Prueba los cambios localmente antes de subirlos a GitHub
+5. Si algo sale mal, siempre puedes volver al archivo original
+
+/* ============================================ */
+/* RECURSOS ÚTILES: */
+/* ============================================ */
+
+- Paleta de colores: https://coolors.co
+- Generador de gradientes: https://cssgradient.io
+- Google Fonts: https://fonts.google.com
+- Iconos: https://emojipedia.org
+
