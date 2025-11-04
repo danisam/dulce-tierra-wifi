@@ -29,6 +29,19 @@
             width: 100%;
             padding: 40px 30px;
             text-align: center;
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .logo-container {
@@ -39,6 +52,14 @@
         .logo {
             width: 100%;
             height: auto;
+            animation: fadeIn 0.8s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
         }
 
         h1 {
@@ -52,6 +73,75 @@
             color: #666;
             font-size: 16px;
             margin-bottom: 30px;
+        }
+
+        /* QR Code Section */
+        .qr-section {
+            background: linear-gradient(135deg, #F8F5FA 0%, #FDFBFE 100%);
+            border-radius: 16px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border: 2px solid #E8DFF0;
+            transition: all 0.3s ease;
+        }
+
+        .qr-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(123, 92, 142, 0.15);
+        }
+
+        .qr-title {
+            color: #7B5C8E;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .qr-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        #qrcode {
+            display: inline-block;
+            padding: 15px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(123, 92, 142, 0.1);
+        }
+
+        .qr-hint {
+            margin-top: 12px;
+            color: #888;
+            font-size: 13px;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 25px 0;
+            color: #B89FBD;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #E8DFF0;
+        }
+
+        .divider::before {
+            margin-right: 15px;
+        }
+
+        .divider::after {
+            margin-left: 15px;
         }
 
         .wifi-info {
@@ -78,9 +168,19 @@
             letter-spacing: 1px;
             margin-bottom: 8px;
             font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .wifi-value-container {
+            display: flex;
+            gap: 10px;
+            align-items: stretch;
         }
 
         .wifi-value {
+            flex: 1;
             font-size: 20px;
             color: #7B5C8E;
             font-weight: 600;
@@ -89,42 +189,51 @@
             padding: 12px 16px;
             border-radius: 8px;
             border: 2px solid #E8DFF0;
+            word-break: break-all;
         }
 
-        .copy-button {
+        .copy-icon-button {
             background: linear-gradient(135deg, #7B5C8E, #9B7BA8);
             color: white;
             border: none;
-            padding: 16px 32px;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
+            padding: 12px 16px;
+            border-radius: 8px;
             cursor: pointer;
-            width: 100%;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(123, 92, 142, 0.3);
+            box-shadow: 0 2px 8px rgba(123, 92, 142, 0.3);
+            min-width: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
         }
 
-        .copy-button:hover {
+        .copy-icon-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(123, 92, 142, 0.4);
+            box-shadow: 0 4px 12px rgba(123, 92, 142, 0.4);
             background: linear-gradient(135deg, #8B6C9E, #AB8BB8);
         }
 
-        .copy-button:active {
-            transform: translateY(0);
+        .copy-icon-button:active {
+            transform: translateY(0) scale(0.95);
         }
 
-        .copy-button.copied {
-            background: #4CAF50;
+        .copy-icon-button.copied {
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+        }
+
+        .copy-icon-button svg {
+            width: 20px;
+            height: 20px;
         }
 
         .steps {
             margin-top: 30px;
             text-align: left;
-            background: #F8F5FA;
+            background: linear-gradient(135deg, #F8F5FA 0%, #FDFBFE 100%);
             border-radius: 12px;
             padding: 20px;
+            border: 2px solid #E8DFF0;
         }
 
         .steps h3 {
@@ -132,22 +241,43 @@
             font-size: 18px;
             margin-bottom: 15px;
             text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
 
         .step {
             margin-bottom: 12px;
-            padding-left: 30px;
+            padding: 12px 12px 12px 40px;
             position: relative;
             color: #555;
             line-height: 1.6;
+            background: white;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .step:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 8px rgba(123, 92, 142, 0.1);
         }
 
         .step:before {
-            content: '•';
+            content: attr(data-step);
             position: absolute;
-            left: 10px;
-            color: #B89FBD;
-            font-size: 20px;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #7B5C8E, #9B7BA8);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
             font-weight: bold;
         }
 
@@ -162,10 +292,58 @@
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .instagram-link:hover {
             color: #9B7BA8;
+        }
+
+        .instagram-link:focus {
+            outline: 2px solid #7B5C8E;
+            outline-offset: 2px;
+            border-radius: 4px;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            box-shadow: 0 8px 24px rgba(76, 175, 80, 0.4);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            transition: bottom 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        .toast.show {
+            bottom: 30px;
+        }
+
+        .toast-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Accessibility improvements */
+        *:focus-visible {
+            outline: 3px solid #7B5C8E;
+            outline-offset: 2px;
         }
 
         @media (max-width: 480px) {
@@ -182,7 +360,26 @@
             }
 
             .wifi-value {
-                font-size: 18px;
+                font-size: 16px;
+                padding: 10px 12px;
+            }
+
+            .copy-icon-button {
+                min-width: 44px;
+                padding: 10px 12px;
+            }
+
+            .qr-section {
+                padding: 20px;
+            }
+
+            #qrcode {
+                padding: 10px;
+            }
+
+            .step {
+                font-size: 14px;
+                padding: 10px 10px 10px 40px;
             }
         }
     </style>
@@ -195,52 +392,183 @@
 
         <p class="subtitle">Conéctate en segundos</p>
 
+        <!-- QR Code Section -->
+        <div class="qr-section">
+            <div class="qr-title">
+                <svg class="qr-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7" rx="1"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1"/>
+                    <path d="M14 14h2v2h-2zM16 16h2v2h-2zM18 14h2v5h-5v-2"/>
+                    <path d="M19 19h2v2h-2"/>
+                </svg>
+                Escanea para conectarte
+            </div>
+            <div id="qrcode" role="img" aria-label="Código QR para conectarse al WiFi"></div>
+            <div class="qr-hint">Usa la cámara de tu teléfono</div>
+        </div>
+
+        <div class="divider">o ingresa manualmente</div>
+
         <div class="wifi-info">
             <div class="wifi-field">
-                <div class="wifi-label">Red WiFi</div>
-                <div class="wifi-value">dulce_tierra</div>
+                <div class="wifi-label">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+                        <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+                        <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+                        <line x1="12" y1="20" x2="12.01" y2="20"/>
+                    </svg>
+                    Red WiFi
+                </div>
+                <div class="wifi-value-container">
+                    <div class="wifi-value" id="ssid">dulce_tierra</div>
+                    <button class="copy-icon-button" onclick="copyToClipboard('dulce_tierra', this, '¡Red copiada!')"
+                            aria-label="Copiar nombre de red WiFi" title="Copiar nombre de red">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
             <div class="wifi-field">
-                <div class="wifi-label">Contraseña</div>
-                <div class="wifi-value" id="password">290323tierra</div>
+                <div class="wifi-label">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                    </svg>
+                    Contraseña
+                </div>
+                <div class="wifi-value-container">
+                    <div class="wifi-value" id="password">290323tierra</div>
+                    <button class="copy-icon-button" onclick="copyToClipboard('290323tierra', this, '¡Contraseña copiada!')"
+                            aria-label="Copiar contraseña WiFi" title="Copiar contraseña">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
 
-        <button class="copy-button" id="copyButton">
-            📋 Copiar Contraseña
-        </button>
-
         <div class="steps">
-            <h3>Pasos para conectarse</h3>
-            <div class="step">Toca "Copiar contraseña"</div>
-            <div class="step">Abre Ajustes → Wi-Fi</div>
-            <div class="step">Elige "dulce_tierra"</div>
-            <div class="step">Pega la contraseña</div>
-            <div class="step">¡Listo! Disfruta tu conexión</div>
+            <h3>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 11 12 14 22 4"/>
+                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+                </svg>
+                Pasos para conectarse
+            </h3>
+            <div class="step" data-step="1">Escanea el código QR o copia la contraseña</div>
+            <div class="step" data-step="2">Abre Ajustes → Wi-Fi</div>
+            <div class="step" data-step="3">Selecciona "dulce_tierra"</div>
+            <div class="step" data-step="4">Pega la contraseña si es necesario</div>
+            <div class="step" data-step="5">¡Listo! Disfruta tu conexión</div>
         </div>
 
         <div class="footer">
-            Síguenos en <a href="https://www.instagram.com/dulcetierrabakery" class="instagram-link" target="_blank">@dulcetierrabakery</a>
+            Síguenos en
+            <a href="https://www.instagram.com/dulcetierrabakery" class="instagram-link" target="_blank" rel="noopener noreferrer">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="white"/>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="white" stroke-width="2"/>
+                </svg>
+                @dulcetierrabakery
+            </a>
         </div>
     </div>
 
-    <script>
-        // Copiar contraseña
-        const copyButton = document.getElementById('copyButton');
-        const password = '290323tierra';
+    <!-- Toast Notification -->
+    <div class="toast" id="toast" role="alert" aria-live="polite">
+        <div class="toast-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+            </svg>
+        </div>
+        <span id="toastMessage"></span>
+    </div>
 
-        copyButton.addEventListener('click', function() {
-            navigator.clipboard.writeText(password).then(function() {
-                copyButton.textContent = '✓ Contraseña Copiada';
-                copyButton.classList.add('copied');
-                
+    <!-- QR Code Library -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+
+    <script>
+        // Generate QR Code for WiFi
+        function generateWiFiQR() {
+            const ssid = 'dulce_tierra';
+            const password = '290323tierra';
+            const encryption = 'WPA';
+
+            // WiFi QR Code format: WIFI:T:WPA;S:ssid;P:password;;
+            const wifiString = `WIFI:T:${encryption};S:${ssid};P:${password};;`;
+
+            new QRCode(document.getElementById('qrcode'), {
+                text: wifiString,
+                width: 200,
+                height: 200,
+                colorDark: '#7B5C8E',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.M
+            });
+        }
+
+        // Copy to clipboard function
+        function copyToClipboard(text, button, message) {
+            navigator.clipboard.writeText(text).then(function() {
+                // Change button state
+                button.classList.add('copied');
+                const originalHTML = button.innerHTML;
+                button.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>';
+
+                // Show toast notification
+                showToast(message);
+
+                // Reset button after 2 seconds
                 setTimeout(function() {
-                    copyButton.textContent = '📋 Copiar Contraseña';
-                    copyButton.classList.remove('copied');
+                    button.classList.remove('copied');
+                    button.innerHTML = originalHTML;
                 }, 2000);
             }).catch(function(err) {
                 console.error('Error al copiar: ', err);
+                showToast('Error al copiar', true);
             });
+        }
+
+        // Toast notification function
+        function showToast(message, isError = false) {
+            const toast = document.getElementById('toast');
+            const toastMessage = document.getElementById('toastMessage');
+
+            toastMessage.textContent = message;
+
+            if (isError) {
+                toast.style.background = 'linear-gradient(135deg, #f44336, #e57373)';
+            } else {
+                toast.style.background = 'linear-gradient(135deg, #4CAF50, #66BB6A)';
+            }
+
+            toast.classList.add('show');
+
+            setTimeout(function() {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+
+        // Initialize QR Code on page load
+        window.addEventListener('load', function() {
+            generateWiFiQR();
+        });
+
+        // Keyboard accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                if (e.target.classList.contains('copy-icon-button')) {
+                    e.preventDefault();
+                    e.target.click();
+                }
+            }
         });
     </script>
 </body>
